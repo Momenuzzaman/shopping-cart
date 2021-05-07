@@ -23,8 +23,8 @@ function handelProduct(isInCrease){
 
    const caseTotal = caseNewCount * 59;
    document.querySelector("#caseTotal").innerText = "$" + caseTotal;
-
 }
+
 
 // document.querySelector("#case-increase").addEventListener("click",function(){
 //    const caseInput = document.querySelector("#case-count");
@@ -48,3 +48,13 @@ function handelProduct(isInCrease){
 
    
 // });
+
+document.querySelector("#phone-increase").addEventListener("click",function(){
+  const phoneInput = document.querySelector("#phone-input");
+  const phoneCount = parseInt(phoneInput.value);
+  const phoneNewCount = phoneCount + 1;
+  phoneInput.value = phoneNewCount;
+
+  const phoneTotal = phoneNewCount * 1219;
+  document.querySelector("#phone-total").innerText = "$" + phoneTotal;
+})
