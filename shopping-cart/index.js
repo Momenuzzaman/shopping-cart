@@ -1,15 +1,6 @@
-//  case
-document.querySelector("#case-increase").addEventListener("click",function(){
-   handelProduct(true);
 
-});
-document.querySelector("#case-decrease").addEventListener("click", function(){
-   handelProduct(false);
-   
-});
-
-
-function handelProduct(isInCrease){
+// case
+function handelProductCase(isInCrease){
    const caseInput = document.querySelector("#case-count");
    const caseCount = parseInt(caseInput.value);
    let caseNewCount = caseCount;
@@ -23,23 +14,14 @@ function handelProduct(isInCrease){
 
    const caseTotal = caseNewCount * 59;
    document.querySelector("#caseTotal").innerText = "$" + caseTotal;
+   calculate();
 }
 
 // case end
 
 // phone
-
-document.querySelector("#phone-increase").addEventListener("click",function(){
-   handelProductPhone(true);
- });
- 
- document.querySelector("#phone-decrease").addEventListener("click",function(){
-   handelProductPhone(false);
-  });
-  
-
   function handelProductPhone(isInCrease){
-   const phoneInput = document.querySelector("#phone-input");
+   const phoneInput = document.querySelector("#phone-count");
     const phoneCount = parseInt(phoneInput.value);
    let phoneNewCount = phoneCount;
    if(isInCrease == true){
@@ -52,8 +34,22 @@ document.querySelector("#phone-increase").addEventListener("click",function(){
  
     const phoneTotal = phoneNewCount * 1219;
     document.querySelector("#phone-total").innerText = "$" + phoneTotal;
+    calculate();
   }
 //   phone end 
+
+// total 
+function calculate(){
+   const phoneInput = document.querySelector("#phone-count");
+   const phoneCount = parseInt(phoneInput.value);
+
+   const caseInput = document.querySelector("#case-count");
+   const caseCount = parseInt(caseInput.value);
+
+   const totalPrice = phoneCount * 1219 + caseCount * 59;
+
+  document.querySelector("#total-price").innerHTML = "$" + totalPrice;
+}
 
 
 // document.querySelector("#case-increase").addEventListener("click",function(){
