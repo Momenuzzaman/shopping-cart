@@ -1,12 +1,12 @@
-
-function handelProduct(product , isInCrease){
+// 3rd method
+function handelProduct(product , Crease){
    const Input = document.getElementById( product +"-count");
    const Count = parseInt(Input.value);
    let NewCount = Count;
-   if(isInCrease == true){
+   if(Crease == true){
       NewCount = Count + 1;
    }
-   else if(isInCrease ==  false && Count > 0){
+   else if(Crease ==  false && Count > 0){
       NewCount = Count -1 ;
    }
    Input.value = NewCount;
@@ -22,27 +22,26 @@ function handelProduct(product , isInCrease){
    calculate();
 }
 
-
-
 function calculate(){
   const phoneCount = getInputValue("phone");
   const caseCount = getInputValue("case")
 
-   
-
-   const totalPrice = phoneCount * 1219 + caseCount * 59;
-
+  const totalPrice = phoneCount * 1219 + caseCount * 59;
   document.querySelector("#total-price").innerHTML = "$" + totalPrice;
+
   const tax = Math.round(totalPrice * 0.1);
   document.getElementById("tax-total").innerText = "$" + tax;
+
+  const grandTotal = totalPrice + tax;
+  document.getElementById("grand-total").innerText = "$" + grandTotal;
+
 }
 function getInputValue(product){
    const Input = document.getElementById(product + "-count");
    const Count = parseInt(Input.value);
    return Count;
-
 }
-
+// 2nd method
 // case
 // function handelProductCase(isInCrease){
 //    const caseInput = document.querySelector("#case-count");
@@ -96,6 +95,7 @@ function getInputValue(product){
 // }
 
 
+// 1st method
 // document.querySelector("#case-increase").addEventListener("click",function(){
 //    const caseInput = document.querySelector("#case-count");
 //    const caseCount = parseInt(caseInput.value);
@@ -138,3 +138,4 @@ function getInputValue(product){
 //    const phoneTotal = phoneNewCount * 1219;
 //    document.querySelector("#phone-total").innerText = "$" + phoneTotal;
 //  })
+
