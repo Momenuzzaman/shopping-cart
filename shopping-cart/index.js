@@ -33,7 +33,8 @@ function calculate(){
    const totalPrice = phoneCount * 1219 + caseCount * 59;
 
   document.querySelector("#total-price").innerHTML = "$" + totalPrice;
-  const tax = totalPrice * 0.1;
+  const tax = Math.round(totalPrice * 0.1);
+  document.getElementById("tax-total").innerText = "$" + tax;
 }
 function getInputValue(product){
    const Input = document.getElementById(product + "-count");
